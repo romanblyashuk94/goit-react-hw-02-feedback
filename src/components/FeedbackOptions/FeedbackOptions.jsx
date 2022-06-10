@@ -1,10 +1,11 @@
 import s from './FeedbackOptions.module.css';
+import PropTypes from 'prop-types';
 
 const FeedbackOptions = ({ onLeaveFeedback, options }) => {
   return (
     <ul className={s.feedbackButtonsList}>
       {options.map(option => (
-        <li className={s.item}>
+        <li key={option} className={s.item}>
           <button
             onClick={() => onLeaveFeedback(option)}
             className={s.feedbackButton}
@@ -15,6 +16,10 @@ const FeedbackOptions = ({ onLeaveFeedback, options }) => {
       ))}
     </ul>
   );
+};
+
+FeedbackOptions.propTypes = {
+  options: PropTypes.arrayOf(PropTypes.string),
 };
 
 export default FeedbackOptions;

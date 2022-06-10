@@ -1,4 +1,5 @@
 import s from './FeedbackStatistics.module.css';
+import PropTypes from 'prop-types';
 
 const FeedbackStatistics = ({
   stat: { good, neutral, bad },
@@ -15,4 +16,15 @@ const FeedbackStatistics = ({
     </ul>
   );
 };
+
+FeedbackStatistics.propTypes = {
+  stat: PropTypes.exact({
+    good: PropTypes.number,
+    neutral: PropTypes.number,
+    bad: PropTypes.number,
+  }),
+  total: PropTypes.number,
+  positivePercent: PropTypes.number,
+};
+
 export default FeedbackStatistics;
